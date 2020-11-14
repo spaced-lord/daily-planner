@@ -1,18 +1,18 @@
 var today = moment().format('llll');
-var hour = moment().format('LT'); 
+var hour = moment().format('H');
 var currentTime = moment().format('LTS');
          
           
           
 $("#currentDay").text(today)
 $.each($("textarea"), function() {
-    if(hour === this.id) {
+    if(hour == parseInt(this.id)) {
         $(this).addClass("present");
         $(this).removeClass("past future");
-    } if(hour < this.id) {
+    } else if(hour > parseInt(this.id)) {
         $(this).addClass("past");
         $(this).removeClass("present future");
-    } if(hour > this.id) {
+    } else {
         $(this).addClass("future");
         $(this).removeClass("past present");
     }
